@@ -5,6 +5,9 @@
   "repository": "https://github.com/Bergkley/CRUD.git",
   "author": "Bergkley <bergkley@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "dev": "ts-node-dev --transpile-only src/server.ts"
+  },
   "dependencies": {
     "express": "^4.19.2"
   },
