@@ -25,5 +25,12 @@ export class Video {
     @ManyToOne(()=> Category)
     @JoinColumn({ name: "category_id" })
     category: Category
+
+
+    constructor(){
+        if(!this.id){
+            this.id = uuid()
+        }
+    }
     
 }
