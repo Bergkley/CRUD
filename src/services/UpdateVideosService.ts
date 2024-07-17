@@ -10,7 +10,7 @@ type VideoUpdateRequest = {
 }
 
 
-export class UpdateCategoryService {
+export class UpdateVideoService {
     async execute({id, name, description, duration}: VideoUpdateRequest) {
         const repo = getRepository(Videos)
 
