@@ -1,36 +1,36 @@
-import { Category } from './Category';
-import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, PrimaryColumn, JoinColumn, ManyToOne } from "typeorm";
-import { v4 as uuid } from "uuid";
+import {Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, PrimaryColumn} from "typeorm";
+import {v4 as uuid} from "uuid";
+import {Category} from "./Category";
 
 
-export class Video {
+@Entity("videos")
+export class Videos{
+
     @PrimaryColumn()
-    id: string
+    id: string;
 
     @Column()
-    name: string
+    name: string;
 
     @Column()
-    description: string
+    description: string;
 
     @Column()
-    duration: number
+    category_id: string;
 
-    @CreateDateColumn()
-    created_at: Date
-
-    @Column()
-    category_id: string
-
-    @ManyToOne(()=> Category)
-    @JoinColumn({ name: "category_id" })
+    @ManyToOne(()=>Category)
+    @JoinColumn({name: "category_id"})
     category: Category
 
+    @Column()
+    duration: number;
 
-    constructor(){
-        if(!this.id){
+    @CreateDateColumn()
+    created_at: Date;
+
+    constructor() {
+        if (!this.id){
             this.id = uuid()
         }
     }
-    
 }
